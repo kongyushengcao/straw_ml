@@ -1,42 +1,39 @@
-// 预测类型枚举
-export type PredictionType = 'glucose' | 'xylose' | 'furfural' | 'HMF' | 'acetic';
+export type PredictionType =
+  | "cellulose_recovery"
+  | "hemicellulose_removal"
+  | "glucose"
+  | "furfural"
+  | "HMF"
+  | "acetic_acid";
 
-// 预测类型显示名称映射
 export const predictionTypeNames: Record<PredictionType, string> = {
-  glucose: '葡萄糖 (Glucose)',
-  xylose: '木糖 (Xylose)',
-  furfural: '糠醛 (Furfural)',
-  HMF: '羟甲基糠醛 (HMF)',
-  acetic: '乙酸 (Acetic Acid)'
+  cellulose_recovery: "纤维素回收率 (Cellulose Recovery)",
+  hemicellulose_removal: "半纤维素脱除率 (Hemicellulose Removal)",
+  glucose: "葡萄糖固相酶解 (Glucose Solid Enzymatic Hydrolysis)",
+  furfural: "糠醛 (Furfural)",
+  HMF: "羟甲基糠醛 (HMF)",
+  acetic_acid: "乙酸 (Acetic Acid)",
 };
 
-// 修改 PredictionInput 为 13 参数版本（包含预测类型）
 export interface PredictionInput {
-  cellulose_content: number;
-  hemicellulose_content: number;
-  lignin_content: number;
-  particles: number;
-  ash_content: number;
-  extract_content: number;
-  kpa: number;
-  acid_concentration: number;
+  cellucose: number;
+  hemicellulose: number;
+  lignin: number;
+  ash: number;
+  acid: number;
+  concentration: number;
   acid_time: number;
-  temp_steam_explosion: number;
-  time_steam_explosion: number;
-  reactor_volume: number;
+  T: number;
+  time: number;
+  cellulase_addition: number | null;
+  B_glucosidase_addition: number | null;
+  hydrolysis_time: number | null;
+  solid_load: number | null;
   prediction_type: PredictionType;
 }
 
-// 修改输出结果的定义
 export interface PredictionOutput {
   predictionValue: number;
   status: string;
   predictionType: PredictionType;
-}
-
-// 如果你有一个统一的响应包装类
-export interface ApiResponse<T> {
-  data: T;
-  message?: string;
-  status?: string;
 }
