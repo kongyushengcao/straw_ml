@@ -255,10 +255,10 @@ const formData = reactive({
   acid_time: 30.0,
   T: 190.0,
   time: 10.0,
-  cellulase_addition: null as number | null,
-  B_glucosidase_addition: null as number | null,
-  hydrolysis_time: null as number | null,
-  solid_load: null as number | null,
+  cellulase_addition: 23.1 as number | null,
+  B_glucosidase_addition: 58.68 as number | null,
+  hydrolysis_time: 72.0 as number | null,
+  solid_load: 5.44 as number | null,
   prediction_type: "cellulose_recovery" as PredictionType,
 });
 

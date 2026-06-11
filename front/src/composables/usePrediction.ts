@@ -1,4 +1,4 @@
-import { ref, reactive } from "vue";
+import { ref } from "vue";
 import type { PredictionInput, PredictionOutput } from "../types/prediction";
 import { predictBiomass } from "../api/prediction";
 import { ElMessage } from "element-plus";
